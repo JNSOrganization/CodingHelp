@@ -19,7 +19,6 @@ void main()
     int numArray[100] = {-1};
     
     printf("Enter commands : ");
-    while(getchar() != '\n');
     scanf_s("%c %d", &command, &num);
     
     switch(command)
@@ -37,6 +36,8 @@ void main()
       default:
         printf("wrong commands. try again.\n");
     }
+    
+    while(getchar() != '\n');
   }
 }
 
