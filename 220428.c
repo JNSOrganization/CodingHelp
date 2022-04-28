@@ -42,12 +42,13 @@ void main()
 
 void add_element(int value, int set[], int* cp)
 {
-  for(int i = 0; i < (*cp); i++)
-    if(set[i] == value)
-    {
+  int check = has_element(value, set, cp);
+  
+  if(check == -1)
+  {
       printf("%d is already in the set.\n", value);
       return;
-    }
+  }
   
   set[(*cp)] = value;
   (*cp)++;
@@ -55,11 +56,11 @@ void add_element(int value, int set[], int* cp)
 
 void delete_element(int value, int set[], int* cp)
 {
-  for(int i = 0; i < (*cp); i++)
+  int check = has_element(value, set, cp);
+  
+  if(check != -1)
   {
-    if(set[i] == value)
-    {
-      for(int j = i + 1; j < (*cp); j++)
+    for(int j = check + 1; j < (*cp); j++)
       {
         set[j - 1] = set[j];
       }
@@ -68,7 +69,6 @@ void delete_element(int value, int set[], int* cp)
       (*cp)--;
       
       return;
-    }
   }
   
   printf("%d is not in the set.\n");
