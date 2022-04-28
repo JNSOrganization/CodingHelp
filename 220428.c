@@ -12,13 +12,14 @@ void main()
   printf("           q ==> quit.\n");
   printf("=======================================\n");
   
-  while(getchar() != '\n')
+  while(1)
   {
     int num = 0, arrayCount = 0;
     char command;
     int numArray[100] = {-1};
     
     printf("Enter commands : ");
+    while(getchar() != '\n');
     scanf_s("%c %d", &command, &num);
     
     switch(command)
